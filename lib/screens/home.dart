@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:linkable/linkable.dart';
 import 'package:the_librarian/screens/floors/floor.dart';
 import 'package:the_librarian/screens/user_info_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   final User user;
@@ -20,6 +22,7 @@ class _HomeState extends State<Home> {
     _user = widget.user;
   }
 
+
   List<int> floors = [-1, 0, 3, 4, 5];
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   @override
@@ -35,11 +38,15 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              child: Text('Guy\'s App'),
+              child: Text('Hello ${_user.displayName}'),
               // decoration: BoxDecoration(
               //   color: Colors.blue,
               // ),
             ),
+            ListTile(
+                title: Text('Aran Library website'),
+                onTap: () => launch('https://in.bgu.ac.il/aranne/Pages/default.aspx'),
+                ),
             ListTile(
                 title: Text('Log Out'),
                 onTap: () {
@@ -52,6 +59,7 @@ class _HomeState extends State<Home> {
                   );
                 }
             ),
+
           ],
         ),
       ),

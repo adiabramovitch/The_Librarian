@@ -16,10 +16,11 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FlutterFire Samples',
+      title: 'BGU Library',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        fontFamily: 'Arimo',
+        primarySwatch: Colors.grey,
         brightness: Brightness.dark,
       ),
       home: Root(),
@@ -33,3 +34,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
