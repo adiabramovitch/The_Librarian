@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:linkable/linkable.dart';
 import 'package:the_librarian/screens/floors/floor.dart';
+import 'package:the_librarian/screens/sign_in_screen.dart';
 import 'package:the_librarian/screens/user_info_screen.dart';
+import 'package:the_librarian/utils/authentication.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -16,12 +18,32 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late User _user;
+  bool _isSigningOut = false;
+
   @override
   void initState(){
     super.initState();
     _user = widget.user;
   }
 
+  Route _routeToSignInScreen() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => SignInScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(-1.0, 0.0);
+        var end = Offset.zero;
+        var curve = Curves.ease;
+
+        var tween =
+        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
 
   List<int> floors = [-1, 0, 3, 4, 5];
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
@@ -38,26 +60,46 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              child: Text('Hello ${_user.displayName}'),
-              // decoration: BoxDecoration(
-              //   color: Colors.blue,
-              // ),
+              child:
+              Text('Hello ${_user.displayName}' ,
+              style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontFamily: 'fonts/Arimo-Regular'
+              ),
             ),
+          ),
             ListTile(
-                title: Text('Aran Library website'),
+                title: Text('Aran Library website',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontFamily: 'fonts/Arimo-Regular'
+                ),
+                ),
                 onTap: () => launch('https://in.bgu.ac.il/aranne/Pages/default.aspx'),
                 ),
             ListTile(
-                title: Text('Log Out'),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => UserInfoScreen(
-                        user: _user,
-                      ),
-                    ),
-                  );
-                }
+                title:
+                Text(
+                  'Log Out',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: 'fonts/Arimo-Regular'
+                  ),
+                ),
+                onTap: () async {
+                  setState(() {
+                    _isSigningOut = true;
+                  });
+                  await Authentication.signOut(context: context);
+                  setState(() {
+                    _isSigningOut = false;
+                  });
+                  Navigator.of(context)
+                      .pushReplacement(_routeToSignInScreen());
+                },
             ),
 
           ],

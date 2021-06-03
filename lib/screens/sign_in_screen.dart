@@ -1,7 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:the_librarian/utils/authentication.dart';
 import 'package:the_librarian/widgets/google_sign_in_button.dart';
 
 import '../customcolors.dart';
@@ -15,7 +14,6 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.accent_blue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -32,49 +30,30 @@ class _SignInScreenState extends State<SignInScreen> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Flexible(
-                      flex: 1,
-                      child: Image.asset(
-                        'assets/firebase_logo.png',
-                        height: 160,
-                      ),
-                    ),
                     SizedBox(height: 20),
                     Text(
-                      'FlutterFire',
-                      style: TextStyle(
-                        color: CustomColors.accent_yellow,
-                        fontSize: 40,
-                      ),
-                    ),
-                    Text(
-                      'Authentication',
+                      'BGU Library',
                       style: TextStyle(
                         color: CustomColors.accent_orange,
                         fontSize: 40,
+                        fontFamily: 'fonts/Arimo-BoldItalic'
                       ),
+                    ),
+                    Text(
+                      'Seats reservations are available only for BGU students and stuff',
+                      style: TextStyle(
+                        color: CustomColors.accent_orange,
+                        fontSize: 20,
+                        fontFamily: 'fonts/Arimo-Medium'
+                      ),
+                      textAlign: TextAlign.center ,
                     ),
                   ],
                 ),
-              ),
+             ),
               GoogleSignInButton(),
-              // FutureBuilder(
-              //   // future: Authentication.initializeFirebase(context: context),
-              //   builder: (context, snapshot) {
-              //     if (snapshot.hasError) {
-              //       return Text('Error initializing Firebase');
-              //     } else if (snapshot.connectionState == ConnectionState.done) {
-              //       return GoogleSignInButton();
-              //     }
-              //     return CircularProgressIndicator(
-              //       valueColor: AlwaysStoppedAnimation<Color>(
-              //         CustomColors.accent_orange,
-              //       ),
-              //     );
-              //   },
-              // ),
             ],
-          ),
+          ) ,
         ),
       ),
     );
