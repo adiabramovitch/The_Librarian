@@ -4,7 +4,7 @@ import os
 if __name__ == "__main__":
     rows = 52
     columns = 32
-    file = open("3.txt", 'r')
+    file = open("../3.txt", 'r')
     lines = file.readlines()
     for i in range(1,rows + 1): # 0 1 2 ... 29
         for j in range(1,columns*2 + 1): # 1 2 3 ... 20
