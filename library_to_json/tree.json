@@ -2067,7 +2067,10 @@
 					"seat_index": null
 					},
 				"586": {
-					"seat_index": null
+					"seat_index": 586,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"587": {
 					"seat_index": null
@@ -2148,13 +2151,19 @@
 					"seat_index": null
 					},
 				"608": {
-					"seat_index": null
+					"seat_index": 608,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"609": {
 					"seat_index": null
 					},
 				"610": {
-					"seat_index": null
+					"seat_index": 610,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"611": {
 					"seat_index": null
@@ -2238,7 +2247,10 @@
 					"seat_index": null
 					},
 				"632": {
-					"seat_index": null
+					"seat_index": 632,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"633": {
 					"seat_index": null
@@ -2496,7 +2508,10 @@
 					"seat_index": null
 					},
 				"701": {
-					"seat_index": null
+					"seat_index": 701,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"702": {
 					"seat_index": null
@@ -2571,13 +2586,19 @@
 					"seat_index": null
 					},
 				"723": {
-					"seat_index": null
+					"seat_index": 723,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"724": {
 					"seat_index": null
 					},
 				"725": {
-					"seat_index": null
+					"seat_index": 725,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"726": {
 					"seat_index": null
@@ -2661,7 +2682,10 @@
 					"seat_index": null
 					},
 				"747": {
-					"seat_index": null
+					"seat_index": 747,
+					"state": true,
+					"user": "",
+					"startDate": 0
 					},
 				"748": {
 					"seat_index": null
@@ -2959,7 +2983,8 @@
 					},
 				"827": {
 					"seat_index": null
-					}		
+					}
+				
 			},
 			"tables": {
 				"0": null,

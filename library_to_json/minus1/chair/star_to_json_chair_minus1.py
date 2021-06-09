@@ -3,7 +3,7 @@ import math
 if __name__ == "__main__":
     rows = 36
     columns = 23
-    file = open("minus1.txt", 'r')
+    file = open("../minus1.txt", 'r')
     lines = file.readlines()
     for i in range(1,rows + 1): # 0 1 2 ... 36
         for j in range(1,columns*2 + 1): # 0 2 4 ... 46
