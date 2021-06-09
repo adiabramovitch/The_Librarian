@@ -1,17 +1,13 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:the_librarian/screens/floors/floor.dart';
-import 'package:the_librarian/screens/home.dart';
+import 'package:the_librarian/screens/floor.dart';
 import 'package:the_librarian/screens/root.dart';
 
-import 'screens/sign_in_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // final dbRef = FirebaseDatabase.instance.reference();
   @override
 
   Widget build(BuildContext context) {
@@ -19,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'BGU Library',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Arimo',
+        fontFamily: 'fonts/Arimo-Regular',
         primarySwatch: Colors.grey,
         brightness: Brightness.dark,
       ),

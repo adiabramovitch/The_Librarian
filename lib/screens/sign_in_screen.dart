@@ -15,20 +15,20 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
-            bottom: 20.0,
-          ),
-          child: Column(
+        child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+        Container(
+        child: Image.asset("assets/lib1.jpg", fit: BoxFit.cover)
+      ),
+          Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Row(),
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(height: 20),
                     Text(
@@ -36,11 +36,12 @@ class _SignInScreenState extends State<SignInScreen> {
                       style: TextStyle(
                         color: CustomColors.accent_orange,
                         fontSize: 40,
-                        fontFamily: 'fonts/Arimo-BoldItalic'
+                        fontFamily: 'fonts/Arimo-BoldItalic',
+                        height: 1.0
                       ),
                     ),
                     Text(
-                      'Seats reservations are available only for BGU students and stuff',
+                      'Seats reservations are available only for BGU students and staff',
                       style: TextStyle(
                         color: CustomColors.accent_orange,
                         fontSize: 20,
@@ -53,10 +54,11 @@ class _SignInScreenState extends State<SignInScreen> {
              ),
               GoogleSignInButton(),
             ],
-          ) ,
+          ),
+      ],
+    ),
         ),
-      ),
-    );
+      );
   }
 }
 

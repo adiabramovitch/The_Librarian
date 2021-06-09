@@ -1,38 +1,25 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:the_librarian/screens/floors/floor.dart';
-import 'package:the_librarian/screens/user_info_screen.dart';
 
 class WelcomePage extends StatefulWidget {
 
   @override
   _WelcomeState createState() => _WelcomeState();
+
 }
 
 class _WelcomeState extends State<WelcomePage> {
 
-  // @override
-  // void initState(){
-  //
-  // }
 
   @override
   Widget build(BuildContext context) {
+
       return Scaffold(
-          backgroundColor: Colors.black,
           body: new InkWell(
             child: new Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
-            /// Paint the area where the inner widgets are loaded with the
-            /// background to keep consistency with the screen background
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/lib1.jpg"),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
+                 Container(
+                      child: Image.asset("assets/lib1.jpg", fit: BoxFit.cover)
                   ),
             new Column(
               mainAxisAlignment: MainAxisAlignment.start,

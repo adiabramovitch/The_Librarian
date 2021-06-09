@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:the_librarian/screens/Error.dart';
 import 'package:the_librarian/screens/home.dart';
 import 'package:the_librarian/screens/sign_in_screen.dart';
-import 'package:the_librarian/screens/user_info_screen.dart';
 import 'package:the_librarian/utils/authentication.dart';
 
 class GoogleSignInButton extends StatefulWidget {
@@ -59,7 +59,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 Authentication.signOut(context: context);
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                      builder: (context) => SignInScreen()
+                      builder: (context) => ErrorPage()
                   ),
                 );
               }

@@ -2,8 +2,8 @@ import math
 import os
 
 if __name__ == "__main__":
-    rows = 14
-    columns = 32
+    rows = 28
+    columns = 14
     file = open("5.txt", 'r')
     lines = file.readlines()
     for i in range(1,rows + 1): # 0 1 2 ... 29
@@ -12,7 +12,8 @@ if __name__ == "__main__":
                 continue
             if len(lines[i]) < j:
                 break
+            seatnum = int((i-1)*columns + math.ceil(j/2)) - 1
             if lines[i][j] == '*':
-                print(f"\"{int((i-1)*columns + math.ceil(j/2))}\": {{\n\t\"seat_index\": {int((i-1)*columns + math.ceil(j/2))},\n\t\"state\": true,\n\t\"user\": \"\",\n\t\"startDate\": 0\n\t}},")
+                print(f"\"{seatnum}\": {{\n\t\"seat_index\": {seatnum},\n\t\"state\": true,\n\t\"user\": \"\",\n\t\"startDate\": 0\n\t}},")
             else:
-                print(f"\"{int((i-1)*columns + math.ceil(j/2))}\": {{\n\t\"seat_index\": null\n\t}},")
+                print(f"\"{seatnum}\": {{\n\t\"seat_index\": null\n\t}},")

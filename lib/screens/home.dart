@@ -1,9 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:linkable/linkable.dart';
-import 'package:the_librarian/screens/floors/floor.dart';
 import 'package:the_librarian/screens/sign_in_screen.dart';
-import 'package:the_librarian/screens/user_info_screen.dart';
 import 'package:the_librarian/utils/authentication.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -156,11 +153,12 @@ class _HomeState extends State<Home> {
                                 context, '/floor' + i.toString()),
                             icon: Icon(Icons.arrow_forward_ios),
                             label: Text(
-                              'Floor ' + i.toString(),
+                              'Reading Hall ' + i.toString(),
                               style: TextStyle(
-                                fontSize: 40.0,
+                                fontSize: 25.0,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 2.0,
+                                color: Colors.white,
                               ),
                             ),
                             color: Colors.grey[200],
