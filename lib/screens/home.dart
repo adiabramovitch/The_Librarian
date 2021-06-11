@@ -46,6 +46,8 @@ class _HomeState extends State<Home> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    final List<String> entries = <String>['A', 'B', 'C'];
+    final List<int> colorCodes = <int>[600, 500, 100];
     return Scaffold(
       key: _globalKey,
       drawer: Drawer(
@@ -67,7 +69,7 @@ class _HomeState extends State<Home> {
             ),
           ),
             ListTile(
-                title: Text('Aran Library website',
+                title: Text('Aran Library Website',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -76,6 +78,16 @@ class _HomeState extends State<Home> {
                 ),
                 onTap: () => launch('https://in.bgu.ac.il/aranne/Pages/default.aspx'),
                 ),
+            ListTile(
+              title: Text('Group Study Room Reservation ',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontFamily: 'fonts/Arimo-Regular'
+                ),
+              ),
+              onTap: () => launch('https://medlibcal.bgu.ac.il/booking/aranne4'),
+            ),
             ListTile(
                 title:
                 Text(

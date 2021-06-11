@@ -3,7 +3,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:the_librarian/utils/Seat.dart';
-import 'package:the_librarian/utils/table.dart';
 
 class Floor extends StatefulWidget {
   final int floorInd;
@@ -31,6 +30,7 @@ class _Floor1State extends State<Floor> {
 
   @override
   Widget build(BuildContext context) {
+
     return StreamBuilder(
         stream: db.child('floors/$floorInd').onValue,
         builder: (BuildContext context, AsyncSnapshot<Event> snapshot) {
@@ -43,26 +43,31 @@ class _Floor1State extends State<Floor> {
             var imageHeight = values['imageHeight'].toDouble();
             var imageWidth = values['imageWidth'].toDouble();
             int floorSize = values['floorSize'];
-            List<Widget> tablesstack = List.generate(tables.length, (index) => Tables(index: index));
+
             List<Widget> stackChildren = List.generate(
                 floorSize,
-                (i) => seats[i.toString()] == null
-                    ? Seat(
-                        index: i,
-                        available: null,
-                        db: db,
-                        floorInd: floorInd,
-                      )
-                    : Container(
-                    color: Colors.brown[100],
-                    child:Seat(
-                        index: i,
-                        available: seats[i.toString()]["state"],
-                        db: db,
-                        startDate: seats[i.toString()]["startDate"],
+                (i) =>
+                   seats[i.toString()] == null
+                  ? tables == null || tables[i.toString()] == null?  Seat(
+                index: i,
+                available: null,
+                db: db,
+                floorInd: floorInd,
+              ):
+              Container(
+                  color: Colors.brown[100],
+                  child: null)
+                  : Container(
+                  color: Colors.brown[100],
+                  child:Seat(
+                      index: i,
+                      available: seats[i.toString()]["state"],
+                      db: db,
+                      startDate: seats
+                      [i.toString()]["startDate"],
                         takenBy: seats[i.toString()]["user"],
                         floorInd: floorInd),),
-                growable: true);
+                growable: true) ;
             return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.white70,
@@ -102,7 +107,7 @@ class _Floor1State extends State<Floor> {
                           scrollDirection: Axis.horizontal,
                           crossAxisCount: rowSize,
                           padding: EdgeInsets.all(10),
-                          children: stackChildren ),
+                          children:stackChildren ),
                     ],
                   ),
                 ),
